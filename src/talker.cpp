@@ -1,7 +1,14 @@
+/**
+ *  @file talker.cpp
+ *  @brief
+ *  @details
+ *  @author     Jiawei Ge(SonamYeshe)
+ *  @copyright  BSD, GNU Public License 2017 Jiawei Ge
+ */
+#include <sstream>
+
 #include "ros/ros.h"
 #include "std_msgs/String.h"
-
-#include <sstream>
 
 /**
  * This tutorial demonstrates simple sending of messages over the ROS system.
