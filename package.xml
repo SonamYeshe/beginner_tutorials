@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<package>
+
+  <name>beginner_tutorials</name>
+  <version>0.0.0</version>
+  <description>The beginner_tutorials package</description>
+
+  <maintainer email="jge0@umd.edu">Jiawei Ge</maintainer>
+
+  <license>BSD, GNU General Public License v3.0</license>
+
+  <url type="website">https://github.com/SonamYeshe/beginner_tutorials.git</url>
+
+  <author email="jge0@umd.edu">Jiawei Ge</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+
+  <export>
+
+  </export>
+
+</package>
