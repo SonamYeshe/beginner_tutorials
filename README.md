@@ -3,10 +3,10 @@
 
 ## Build
 ```
-git clone --recursive https://github.com/SonamYeshe/beginner_tutorials.git
-cd <path to catkin_ws/src>
-cd ..
-catkin_make
+$ git clone --recursive https://github.com/SonamYeshe/ beginner_tutorials.git
+$ cd <path to catkin_ws/src>
+$ cd ..
+$ catkin_make
 ```
 
 ## Run
