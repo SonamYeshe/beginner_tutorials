@@ -12,6 +12,7 @@
 
 /**
  * This tutorial demonstrates simple sending of messages over the ROS system.
+ * Test of checkout branch.
  */
 int main(int argc, char **argv) {
   /**
