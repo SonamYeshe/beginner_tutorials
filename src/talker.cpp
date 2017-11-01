@@ -68,7 +68,9 @@ int main(int argc, char **argv) {
     std::stringstream ss;
     ss << "God gives you shoes, fits you." << count;
     msg.data = ss.str();
-
+    /*
+     * %s stands for msg.data.c_str(), output is inside the double quotation mark
+     */
     ROS_INFO("%s", msg.data.c_str());
 
     /**
