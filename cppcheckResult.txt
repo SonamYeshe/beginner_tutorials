@@ -1,10 +1,5 @@
-cppcheck --enable=all --std=c++11 -I include/ --check-config --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
-Checking src/listener.cpp...
-[src/listener.cpp:9]: (information) Include file: "ros/ros.h" not found.
-[src/listener.cpp:10]: (information) Include file: "std_msgs/String.h" not found.
-1/2 files checked 44% done
-Checking src/talker.cpp...
-[src/talker.cpp:10]: (information) Include file: "ros/ros.h" not found.
-[src/talker.cpp:11]: (information) Include file: "std_msgs/String.h" not found.
-2/2 files checked 100% done
+$ ../cpplint.py --extensions=h,hpp,cpp $( find . -name *.h -or -name *.hpp -or -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+Done processing ./src/listener.cpp
+Done processing ./src/talker.cpp
+Total errors found: 0
 
