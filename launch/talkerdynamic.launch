@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg = "beginner_tutorials" type = "talker" name = "talk"/>
+  <node pkg = "beginner_tutorials" type = "listener" name = "listen"/>
+  <node pkg = "beginner_tutorials" type = "change_output_string_client" name ="change" args = "$(arg new_string)"/>
+
+</launch>

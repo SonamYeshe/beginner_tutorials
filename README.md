@@ -39,3 +39,9 @@ $ cppcheck --enable=all --std=c++11 --includes-file=cppcheck.txt --check-config 
 ## Dependency
 
 ROS kinetic
+
+## rosservice
+rosservice call /change_output_string "new_string: 'yes'"
+rosrun beginner_tutorials change_output_string_client sssdadsadsadas
+
+roslaunch beginner_tutorials talkdynamic.launch new_string:=asdsadadsa
