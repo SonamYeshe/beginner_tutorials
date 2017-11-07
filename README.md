@@ -27,7 +27,7 @@ $ cd <path to parent folder of the beginner_tutorials>
 $ wget https://raw.githubusercontent.com/google/styleguide/gh-pages/cpplint/cpplint.py
 $ chmod +x cpplint.py
 $ cd <path to beginner_tutorials>
-$ ../cpplint.py --extensions=h,hpp,cpp $( find . -name *.h -or -name *.hpp -or -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+$ ../cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
 ```
 
 ## cppcheck
