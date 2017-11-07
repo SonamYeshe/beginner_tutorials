@@ -6,9 +6,22 @@
  *  @copyright  BSD, GNU Public License 2017 Jiawei Ge
  */
 #include <sstream>
-
+#include <string>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "beginner_tutorials/ChangeOutputString.h"
+
+std_msgs::String output_string;
+
+bool change(beginner_tutorials::ChangeOutputString::Request &req,
+         beginner_tutorials::ChangeOutputString::Response &res)
+{
+  output_string.data = "change to string: " + req.new_string;
+//words<<req.new_string;
+//  ROS_INFO("change to string: new_string=%s", req.new_string.c_str());
+//  ROS_INFO("sending back response: [%ld]", (long int)res.sum);
+  return true;
+}
 
 /**
  * This tutorial demonstrates simple sending of messages over the ROS system.
@@ -51,29 +64,28 @@ int main(int argc, char **argv) {
    * than we can send them, the number here specifies how many messages to
    * buffer up before throwing some away.
    */
+  ros::ServiceServer service = n.advertiseService("change_output_string", change);
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
-
   ros::Rate loop_rate(10);
-
+  beginner_tutorials::ChangeOutputString::Response res2;
   /**
    * A count of how many messages we have sent. This is used to create
    * a unique string for each message.
    */
   int count = 0;
+  output_string.data = "God gives you shoes, fits you.";
   while (ros::ok()) {
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
     std_msgs::String msg;
-
     std::stringstream ss;
-    ss << "God gives you shoes, fits you." << count;
+    ss << output_string.data << count ;
     msg.data = ss.str();
     /*
      * %s stands for msg.data.c_str(), output is inside the double quotation mark
      */
     ROS_INFO("%s", msg.data.c_str());
-
     /**
      * The publish() function is how you send messages. The parameter
      * is the message object. The type of this object must agree with the type
