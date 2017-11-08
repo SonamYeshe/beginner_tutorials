@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
   srv.request.new_string = argv[1];
   if (client.call(srv)) {
     // don't write a (std_msgs::string) in front of the srv.....
-    ROS_INFO("New: %s", srv.response.output_string.c_str());
+    ROS_INFO("New: %s", srv.request.new_string.c_str());
   } else {
     ROS_ERROR("Failed to call service change_output_string");
     return 1;

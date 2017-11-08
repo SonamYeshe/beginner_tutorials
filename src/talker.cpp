@@ -13,8 +13,8 @@
 
 std_msgs::String output_string;
 int pub_frequency = 10;
-bool change(const beginner_tutorials::ChangeOutputString::Request &req,
-            const beginner_tutorials::ChangeOutputString::Response &res) {
+bool change(beginner_tutorials::ChangeOutputString::Request &req,
+            beginner_tutorials::ChangeOutputString::Response &res) {
   output_string.data = "change to string: " + req.new_string;
   return true;
 }
