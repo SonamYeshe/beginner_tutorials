@@ -1,6 +1,6 @@
 /**
- *  @file listener.cpp
- *  @brief
+ *  @file 	listener.cpp
+ *  @brief	listen to the string published by the talker.
  *  @details
  *  @author     Jiawei Ge(SonamYeshe)
  *  @copyright  BSD, GNU Public License 2017 Jiawei Ge

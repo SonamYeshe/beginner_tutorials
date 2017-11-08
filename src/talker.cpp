@@ -1,16 +1,22 @@
 /**
- *  @file talker.cpp
- *  @brief
+ *  @file 	talker.cpp
+ *  @brief	a publisher to publish a given string. a service to change the output string.
  *  @details
  *  @author     Jiawei Ge(SonamYeshe)
  *  @copyright  BSD, GNU Public License 2017 Jiawei Ge
  */
+
 #include <sstream>
 #include <string>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "beginner_tutorials/ChangeOutputString.h"
 
+/**
+ *  define a global variable to store the output string.
+ *  define integer to control publish frequency.
+ *  define the output of the added service.
+ */
 std_msgs::String output_string;
 int pub_frequency = 10;
 bool change(beginner_tutorials::ChangeOutputString::Request &req,
@@ -20,9 +26,12 @@ bool change(beginner_tutorials::ChangeOutputString::Request &req,
 }
 
 /**
- * This tutorial demonstrates simple sending of messages over the ROS system.
- * Test of checkout branch.
+ *  @brief	continue to publish a string with a fied rate.	
+ *  @param	integer of argument count
+ *  @param	char pointer of argument value
+ *  @return	a bool value
  */
+
 int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
