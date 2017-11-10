@@ -1,0 +1,12 @@
+background_b: 255
+background_g: 86
+background_r: 150
+rosdistro: 'kinetic
+
+  '
+roslaunch:
+  uris: {host_sonamyeshe_precision_tower_3620__35291: 'http://sonamyeshe-Precision-Tower-3620:35291/'}
+rosversion: '1.12.7
+
+  '
+run_id: b6ba8362-bf46-11e7-a41c-509a4c5af9c1

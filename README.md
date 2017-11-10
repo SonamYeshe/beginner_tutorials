@@ -1,18 +1,24 @@
 ## beginner_tutorials breif
-"First Publisher/Subscriber" ROS package. Talker publishes the string "God gives you shoes, fits you." and listener subscribes that message.
+"First Publisher/Subscriber" ROS package. Talker publishes the string "God gives you shoes, fits you." and listener subscribes that message. 
+
+Add a service in the talker node which can change the output string to whatever you want. Add a change_output_string_client node to offer an alternative method to call the added service in the talker node.
 
 ## Build
 ```
-$ git clone --recursive https://github.com/SonamYeshe/ beginner_tutorials.git
-$ cd <path to catkin_ws/src>
-$ cd ..
+$ git clone --recursive https://github.com/SonamYeshe/beginner_tutorials.git
+$ cd <path to catkin_ws>
+$ git checkout Week10_HW
 $ catkin_make
 ```
 
 ## Run
+run the ros service first.
 ```
 $ roscore
 ```
+
+1. run all the command line seperately in different terminals:
+
 open a new terminal and 
 ```
 $ rosrun beginner_tutorials talker 
@@ -21,13 +27,29 @@ open a new terminal and
 ```
 $ rosrun beginner_tutorials listener
 ```
+
+2. Using launch file to call all the nodes in the same terminal, and see the results in the rqt_console(note that the console should be opened in another terminal):
+
+```
+$ roslaunch beginner_tutorials talkerdynamic.launch
+$ rosrun rqt_console rqt_console
+```
+
+Now you have two methods to change the output string. First, open a new terminal and
+```
+$ rosservice call /change_output_string "new_string: '<any string you prefer>'"
+```
+Or, in a new terminal,
+```
+$ rosrun beginner_tutorials change_output_string_client <any string you prefer>
+```
 ## cpplint
 ```
 $ cd <path to parent folder of the beginner_tutorials>
 $ wget https://raw.githubusercontent.com/google/styleguide/gh-pages/cpplint/cpplint.py
 $ chmod +x cpplint.py
 $ cd <path to beginner_tutorials>
-$ ../cpplint.py --extensions=h,hpp,cpp $( find . -name *.h -or -name *.hpp -or -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+$ ../cpplint.py $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
 ```
 
 ## cppcheck
@@ -39,4 +61,4 @@ $ cppcheck --enable=all --std=c++11 --includes-file=cppcheck.txt --check-config 
 
 ## Dependency
 
-ROS kinetic
+1. ROS kinetic
