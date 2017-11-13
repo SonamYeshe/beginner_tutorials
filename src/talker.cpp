@@ -52,7 +52,8 @@ int main(int argc, char **argv) {
    * NodeHandle destructed will close down the node.
    */
   ros::NodeHandle n;
-
+  ros::NodeHandle home("~");
+  home.getParam("pub_frequency", pub_frequency);
   /**
    * The advertise() function is how you tell ROS that you want to
    * publish on a given topic name. This invokes a call to the ROS
