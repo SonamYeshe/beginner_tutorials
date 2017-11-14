@@ -24,6 +24,7 @@ int pub_frequency = 10;
 bool change(beginner_tutorials::ChangeOutputString::Request &req,
             beginner_tutorials::ChangeOutputString::Response &res) {
   output_string.data = "change to string: " + req.new_string;
+  res.output_string = output_string.data;
   return true;
 }
 
@@ -88,7 +89,7 @@ int main(int argc, char **argv) {
   output_string.data = "God gives you shoes, fits you.";
   while (ros::ok() && n.ok()) {
      /**
-     * setup a /talk frame with parent /world.
+     * broadcast a /talk frame with parent /world.
      */
     transform.setOrigin( tf::Vector3(0.0, 2.0, 0.0) );
     transform.setRotation( tf::Quaternion(0, 0, 0, 1) );
