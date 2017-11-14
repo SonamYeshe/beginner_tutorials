@@ -8,6 +8,7 @@
 
 #include <sstream>
 #include <string>
+#include <tf/transform_broadcaster.h>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "beginner_tutorials/ChangeOutputString.h"
@@ -54,6 +55,9 @@ int main(int argc, char **argv) {
   ros::NodeHandle n;
   ros::NodeHandle home("~");
   home.getParam("pub_frequency", pub_frequency);
+
+  tf::TransformBroadcaster br;
+  tf::Transform transform;
   /**
    * The advertise() function is how you tell ROS that you want to
    * publish on a given topic name. This invokes a call to the ROS
@@ -82,7 +86,13 @@ int main(int argc, char **argv) {
    */
   int count = 0;
   output_string.data = "God gives you shoes, fits you.";
-  while (ros::ok()) {
+  while (ros::ok() && n.ok()) {
+     /**
+     * setup a /talk frame with parent /world.
+     */
+    transform.setOrigin( tf::Vector3(0.0, 2.0, 0.0) );
+    transform.setRotation( tf::Quaternion(0, 0, 0, 1) );
+    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
@@ -107,7 +117,6 @@ int main(int argc, char **argv) {
     loop_rate.sleep();
     ++count;
   }
-
   return 0;
-}
+};
 
