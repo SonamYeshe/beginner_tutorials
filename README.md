@@ -15,17 +15,16 @@ Permissions of this strong copyleft license are conditioned on making available 
 ## Disclaimer 
 Jiawei Ge(SonamYeshe), hereby disclaims all copyright interest in the program `beginner_tutorials' (which makes passes at compilers) written by Jiawei Ge(SonamYeshe).
 
- <signature of Jiawei Ge>, 14 November 2017
+ (signature of Jiawei Ge), 14 November 2017
 
  Jiawei Ge
 
-
 ## Build
 ```
-$ cd <path to catkin_ws/src/beginner_tutorials>
+$ cd <path to catkin_ws/src>
 $ git clone --recursive https://github.com/SonamYeshe/beginner_tutorials.git
-$ cd <path to catkin_ws>
 $ git checkout Week11_HW
+$ cd <path to catkin_ws>
 $ catkin_make
 $ catkin_make tests
 ```
