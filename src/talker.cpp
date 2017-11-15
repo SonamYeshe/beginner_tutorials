@@ -1,9 +1,13 @@
 /**
  *  @file 	talker.cpp
- *  @brief	a publisher to publish a given string. a service to change the output string.
+ *  @brief	a publisher to publish a given string. a service to 			change the output string.
  *  @details
  *  @author     Jiawei Ge(SonamYeshe)
  *  @copyright  BSD, GNU Public License 2017 Jiawei Ge
+ *  @disclaimer	Jiawei Ge(SonamYeshe), hereby disclaims all copyright 			interest in the program
+ 		`beginner_tutorials' (which makes passes at compilers) 			written by Jiawei Ge(SonamYeshe).
+ 		<signature of Jiawei Ge>, 14 November 2017
+ 		Jiawei Ge
  */
 
 #include <sstream>
@@ -57,6 +61,11 @@ int main(int argc, char **argv) {
   ros::NodeHandle home("~");
   home.getParam("pub_frequency", pub_frequency);
 
+  /**
+   *  create a TransformBroadcaster object that we'll use later to send 
+   *  the transformations over the wire.   create a transfprm object to 
+   *  store the 3D transformation info.
+   */
   tf::TransformBroadcaster br;
   tf::Transform transform;
   /**
@@ -89,7 +98,7 @@ int main(int argc, char **argv) {
   output_string.data = "God gives you shoes, fits you.";
   while (ros::ok() && n.ok()) {
      /**
-     * broadcast a /talk frame with parent /world.
+     * broadcast a fixed /talk frame with parent /world.
      */
     transform.setOrigin( tf::Vector3(0.0, 2.0, 0.0) );
     transform.setRotation( tf::Quaternion(0, 0, 0, 1) );

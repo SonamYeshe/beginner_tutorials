@@ -4,6 +4,10 @@
  *  @details	alternative way to change string.
  *  @author     Jiawei Ge(SonamYeshe)
  *  @copyright  BSD, GNU Public License 2017 Jiawei Ge
+ *  @disclaimer	Jiawei Ge(SonamYeshe), hereby disclaims all copyright 			interest in the program
+ 		`beginner_tutorials' (which makes passes at compilers) 			written by Jiawei Ge(SonamYeshe).
+ 		<signature of Jiawei Ge>, 14 November 2017
+ 		Jiawei Ge
  */
 
 #include <string>
