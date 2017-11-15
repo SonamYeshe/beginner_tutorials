@@ -68,3 +68,5 @@ catkin_make tests
 catkin_make test
 catkin_make run_tests_beginner_tutorials
 rostest beginner_tutorials change_output_string_clients.launch
+
+xmllint talkerdynamic.launch

@@ -1,8 +1,16 @@
 <launch>
 
-<node pkg = "beginner_tutorials" type = "talker" name = "talker">
-<param name = "pub_frequency" value = "1"/>
-</node>
-<node pkg = "beginner_tutorials" type = "listener" name = "listener"/>
+  <arg name="record_all" default="true" />
+
+  <group if="$(arg record_all)">
+    <node pkg="rosbag" type="record" name="record_all_topics" args="-o record_all_topics /chatter /rosout /tf /rosout_agg /> 
+  </group>
+
+  <node pkg="rosbag" type="record" name="record_all_topics" args="-o record_all_topics /chatter /rosout /tf /rosout_agg /> 
+
+  <node pkg = "beginner_tutorials" type = "talker" name = "talker">
+    <param name = "pub_frequency" value = "1"/>
+  </node>
+  <node pkg = "beginner_tutorials" type = "listener" name = "listener"/>
 
 </launch>
