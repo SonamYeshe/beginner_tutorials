@@ -9,9 +9,9 @@
  Jiawei Ge
  */
 
+#include <tf/transform_broadcaster.h>
 #include <sstream>
 #include <string>
-#include <tf/transform_broadcaster.h>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "beginner_tutorials/ChangeOutputString.h"
@@ -129,5 +129,3 @@ int main(int argc, char **argv) {
   }
   return 0;
 }
-;
-

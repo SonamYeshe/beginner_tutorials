@@ -1,8 +1,9 @@
 $ ../cpplint.py $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
-./src/talker.cpp:16:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ChangeOutputString::Request &req  [runtime/references] [2]
-./src/talker.cpp:17:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ChangeOutputString::Response &res  [runtime/references] [2]
+./src/talker.cpp:27:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ChangeOutputString::Request &req  [runtime/references] [2]
+./src/talker.cpp:28:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::ChangeOutputString::Response &res  [runtime/references] [2]
 Done processing ./src/talker.cpp
 Done processing ./src/listener.cpp
 Done processing ./src/change_output_string_client.cpp
+Done processing ./test/change_output_string_clients.cpp
 Total errors found: 2
 

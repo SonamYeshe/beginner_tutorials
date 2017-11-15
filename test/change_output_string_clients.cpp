@@ -13,6 +13,7 @@
 #include <ros/service_client.h>
 #include <gtest/gtest.h>
 #include <string>
+#include <memory>
 #include "beginner_tutorials/ChangeOutputString.h"
 
 std::shared_ptr<ros::NodeHandle> n;
