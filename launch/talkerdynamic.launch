@@ -1,9 +1,9 @@
 <launch>
 
-  <arg name="record_all" default="true" />
+  <arg name="record_all" default="false" />
 
   <group if="$(arg record_all)">
-    <node pkg="rosbag" type="record" name="record_all_topics" args="-o ../catkin_ws/src/beginner_tutorials/record_all_topics /chatter /rosout /tf /rosout_agg" /> 
+    <node pkg="rosbag" type="record" name="record_all_topics" args="-o ../catkin_ws/src/beginner_tutorials/results/record_all_topics /chatter /rosout /tf /rosout_agg" /> 
   </group>
 
   <node pkg = "beginner_tutorials" type = "talker" name = "talker">
