@@ -1,13 +1,12 @@
 /**
- *  @file 	talker.cpp
- *  @brief	a publisher to publish a given string. a service to 			change the output string.
+ *  @file   talker.cpp
+ *  @brief  a publisher to publish a given string. a service to       change the output string.
  *  @details
  *  @author     Jiawei Ge(SonamYeshe)
  *  @copyright  BSD, GNU Public License 2017 Jiawei Ge
- *  @disclaimer	Jiawei Ge(SonamYeshe), hereby disclaims all copyright 			interest in the program
- 		`beginner_tutorials' (which makes passes at compilers) 			written by Jiawei Ge(SonamYeshe).
- 		<signature of Jiawei Ge>, 14 November 2017
- 		Jiawei Ge
+ *  @disclaimer Jiawei Ge(SonamYeshe), hereby disclaims all copyright interest in the program `beginner_tutorials' (which makes passes at compilers) written by Jiawei Ge(SonamYeshe).
+ <signature of Jiawei Ge>, 14 November 2017
+ Jiawei Ge
  */
 
 #include <sstream>
@@ -33,10 +32,10 @@ bool change(beginner_tutorials::ChangeOutputString::Request &req,
 }
 
 /**
- *  @brief	continue to publish a string with a fied rate.	
- *  @param	integer of argument count
- *  @param	char pointer of argument value
- *  @return	a bool value
+ *  @brief  continue to publish a string with a fied rate.  
+ *  @param  integer of argument count
+ *  @param  char pointer of argument value
+ *  @return a bool value
  */
 
 int main(int argc, char **argv) {
@@ -97,12 +96,13 @@ int main(int argc, char **argv) {
   int count = 0;
   output_string.data = "God gives you shoes, fits you.";
   while (ros::ok() && n.ok()) {
-     /**
+    /**
      * broadcast a fixed /talk frame with parent /world.
      */
-    transform.setOrigin( tf::Vector3(0.0, 2.0, 0.0) );
-    transform.setRotation( tf::Quaternion(0, 0, 0, 1) );
-    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
+    transform.setOrigin(tf::Vector3(0.0, 2.0, 0.0));
+    transform.setRotation(tf::Quaternion(0, 0, 0, 1));
+    br.sendTransform(
+        tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
@@ -128,5 +128,6 @@ int main(int argc, char **argv) {
     ++count;
   }
   return 0;
-};
+}
+;
 
