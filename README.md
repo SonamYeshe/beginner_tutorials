@@ -23,8 +23,9 @@ Jiawei Ge(SonamYeshe), hereby disclaims all copyright interest in the program `b
 ```
 $ cd <path to catkin_ws/src>
 $ git clone --recursive https://github.com/SonamYeshe/beginner_tutorials.git
+$ cd beginner_tutorials
 $ git checkout Week11_HW
-$ cd <path to catkin_ws>
+$ cd ../..
 $ catkin_make
 $ catkin_make tests
 ```
@@ -46,15 +47,19 @@ open a new terminal and
 $ rosrun beginner_tutorials listener
 ```
 
-2. Using launch file to call all the nodes in the same terminal, and see the results in the rqt_console(note that the console should be opened in another terminal):
+2. Using launch file to call all the nodes in the same terminal, and see the results in the rqt_console:
 
+Close all terminals except the roscore, then run the following codes in seperate terminals.
 ```
 $ roslaunch beginner_tutorials talkerdynamic.launch
 $ rosrun rqt_console rqt_console
 ```
 
+Click the red button in the upper left of the rqt_console to start the stream. 
+
 Now you have two methods to change the output string. First, open a new terminal and
 ```
+$ roscd beginner_tutorials/
 $ rosservice call /change_output_string "new_string: '<any string you prefer>'"
 ```
 Or, in a new terminal,
@@ -63,7 +68,7 @@ $ rosrun beginner_tutorials change_output_string_client <any string you prefer>
 ```
 
 ## Tests
-If you want to run the tests files,
+If you want to run the tests files, in a differrent terminal,
 ```
 $ cd <path to catkin_ws>
 $ catkin_make test
@@ -74,11 +79,11 @@ $ rostest beginner_tutorials change_output_string_clients.launch
 ```
 
 ## Bagfiles
-The bagfile is recorded by the command in the talkerdynamic.launchfile, the default setting is false. If you want to record again, just change the default in <arg name="record_all" default="false" /> to be "true".
+The bagfile is recorded by the command in the talkerdynamic.launchfile, the default setting is false. If you want to record again, just change the default in (default="false") to be "true".
 
 To see the bag file info,
 ```
-$ cd <path to catkin_ws/src/beginner_tutorials>
+$ roscd beginner_tutorials/
 $ rosbag info results/record_all_topics_2017-11-14-22-45-16.bag
 ```
 
@@ -93,16 +98,16 @@ $ rosbag play results/record_all_topics_2017-11-14-22-45-16.bag
 
 ## Cpplint
 ```
-$ cd <path to parent folder of the beginner_tutorials>
+$ cd <path to catkin_ws/src>
 $ wget https://raw.githubusercontent.com/google/styleguide/gh-pages/cpplint/cpplint.py
 $ chmod +x cpplint.py
-$ cd <path to beginner_tutorials>
+$ roscd beginner_tutorials/
 $ ../cpplint.py $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
 ```
 
 ## Cppcheck
 ```
-$ cd <path to beginner_tutorials>
+$ roscd beginner_tutorials/
 $ cppcheck --enable=all --std=c++11 --includes-file=cppcheck.txt --check-config --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
 ```
 
